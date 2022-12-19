@@ -10,12 +10,14 @@ def GitClone(String gitUrl, String auth = "",String localRepo = "", String branc
     return isSuccess
 }
 
+def Version = Jenkins.instance.getItemByFullName('example').getItem('develop').lastSuccessfulBuild.number
+
 pipeline {
 
     parameters {
         string(name: 'Agent', defaultValue: 'jenkins-node', description: 'Jenkins Test Agent Label')
         booleanParam(name: 'Reinstall', defaultValue: true, description: 'Reinstall Testable Windows Application If Checked')
-        string(name: 'Version', defaultValue: '***', description: 'Testable Windows Application Version')
+        string(name: 'Version', defaultValue: '$Version', description: 'Testable Windows Application Version')
         string(name: 'DevBranch', defaultValue: "develop", description: 'Testable Windows Application Development Branch')
         string(name: 'TestBranch', defaultValue: "master", description: 'Test Automation Framework/Solution Branch For Testable Windows Application')
         string(name: 'Parameters', defaultValue:"parameter='value'", description: 'Current (Overridable) Test Run Settings Parameters')
