@@ -5,6 +5,6 @@ Example of a Jenkins pipeline for a Test Automation flow, with following stages:
 - Reinstall Testable Windows Application
 - Build Test Automation Solution
 - Update Test Run Settings
-- Tests Run
+- Tests Run (using vstest.console using specific tests run settings and tests categories)
 - Send reporting through email
 - Cleanup workspace folder after test run
